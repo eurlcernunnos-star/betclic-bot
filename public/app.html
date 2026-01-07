@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | BetclicPredictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <div class="logo">BP<span class="highlight">.AI</span></div>
+            <nav>
+                <a href="#" class="active">🔥 Prédictions du Jour</a>
+                <a href="#">📊 Historique</a>
+                <a href="pricing.html">💎 Devenir VIP</a>
+                <a href="index.html">Déconnexion</a>
+            </nav>
+        </aside>
+
+        <main class="dashboard">
+            <header class="dash-header">
+                <h2>Prédictions en cours</h2>
+                <div class="user-status">Mode: <span class="badge-free">GUEST</span></div>
+            </header>
+
+            <div class="predictions-grid" id="predictions-container">
+                <!-- Predictions will be loaded here via JS -->
+                <div class="loading">Analyse des cotes en cours...</div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Load Data from Vercel Postgres API
+        fetch('/api/get_predictions')
+            .then(response => response.json())
+            .then(data => {
+                const container = document.getElementById('predictions-container');
+                container.innerHTML = '';
+
+                data.forEach((match, index) => {
+                    // Simulate VIP restriction: Top 3 are free, rest are VIP
+                    const isVip = index >= 2;
+
+                    const card = document.createElement('div');
+                    card.className = `pred-card ${isVip ? 'vip-locked' : ''}`;
+
+                    let actionButton = `<button class="btn-bet">Parier sur ${match.prediction} @${match.odds}</button>`;
+                    let probability = `${match.probability}%`;
+                    let edge = `+${match.edge}% Edge`;
+
+                    if (isVip) {
+                        actionButton = `<button class="btn-lock" onclick="window.location.href='pricing.html'">🔒 Débloquer VIP</button>`;
+                        probability = `??%`;
+                        edge = `??%`;
+                    }
+
+                    card.innerHTML = `
+                        <div class="league">${match.league}</div>
+                        <div class="teams">
+                            <span class="home">${match.home}</span>
+                            <span class="vs">vs</span>
+                            <span class="away">${match.away}</span>
+                        </div>
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <span class="label">Confiance</span>
+                                <span class="value high">${probability}</span>
+                            </div>
+                            <div class="stat-box">
+                                <span class="label">Value</span>
+                                <span class="value">${edge}</span>
+                            </div>
+                        </div>
+                        <div class="prediction-main">
+                            ${match.prediction}
+                        </div>
+                        ${actionButton}
+                    `;
+                    container.appendChild(card);
+                });
+            })
+            .catch(err => {
+                document.getElementById('predictions-container').innerHTML = '<div class="error">Impossible de charger les prédictions.</div>';
+            });
+    </script>
+</body>
+
+</html>

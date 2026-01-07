@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connexion | BetclicPredictor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="auth-body">
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="logo-center">Betclic<span class="highlight">Predictor</span></div>
+            <h2>Bon retour parmi nous</h2>
+            <p class="auth-subtitle">Accédez à votre dashboard de prédictions</p>
+
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" placeholder="votre@email.com" value="demo@betclicpredictor.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Mot de passe</label>
+                    <input type="password" placeholder="••••••••" value="password123" required>
+                </div>
+                <div class="form-actions">
+                    <label class="checkbox-container">
+                        <input type="checkbox" checked> Se souvenir de moi
+                    </label>
+                    <a href="#" class="forgot-pass">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="btn-full">Se Connecter</button>
+            </form>
+
+            <div class="auth-footer">
+                Pas encore de compte ? <a href="pricing.html">S'inscrire</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function handleLogin(e) {
+            e.preventDefault();
+            const btn = document.querySelector('.btn-full');
+            btn.innerHTML = 'Connexion...';
+            btn.style.opacity = '0.7';
+
+            // Simulate API delay
+            setTimeout(() => {
+                window.location.href = 'app.html';
+            }, 1000);
+        }
+    </script>
+</body>
+
+</html>

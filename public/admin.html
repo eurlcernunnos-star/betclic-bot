@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Predictor</title>
+    <style>
+        body {
+            background: #111;
+            color: #fff;
+            font-family: monospace;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            border-bottom: 1px solid #333;
+            padding-bottom: 1rem;
+        }
+
+        .status {
+            color: #0f0;
+            margin-bottom: 2rem;
+        }
+
+        pre {
+            background: #222;
+            padding: 1rem;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        button {
+            background: #d50032;
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Admin Control Panel</h1>
+        <div class="status">System Status: ONLINE</div>
+        <p>Current Algorithm: <strong>Poisson v2.1</strong></p>
+
+        <h3>Latest Generated Predictions (JSON)</h3>
+        <pre id="json-preview">Loading...</pre>
+
+        <button onclick="window.location.reload()">Refresh Data</button>
+    </div>
+
+    <script>
+        fetch('/api/get_predictions')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('json-preview').innerText = JSON.stringify(data, null, 2);
+            });
+    </script>
+</body>
+
+</html>

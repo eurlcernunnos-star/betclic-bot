@@ -1,0 +1,28 @@
+[
+    {
+        "id": 13,
+        "date": "2026-01-07 17:42",
+        "league": "Ligue 1",
+        "home": "Lens",
+        "away": "Barcelona",
+        "prediction": "HOME WIN",
+        "odds": 2.03,
+        "probability": 52.1,
+        "edge": 5.8,
+        "status": "PENDING",
+        "result": "LOST"
+    },
+    {
+        "id": 5,
+        "date": "2026-01-10 17:42",
+        "league": "Champions League",
+        "home": "Rennes",
+        "away": "Barcelona",
+        "prediction": "HOME WIN",
+        "odds": 2.59,
+        "probability": 40.8,
+        "edge": 5.7,
+        "status": "PENDING",
+        "result": "WON"
+    }
+]

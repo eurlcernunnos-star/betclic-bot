@@ -1,0 +1,41 @@
+[
+    {
+        "id": 84,
+        "date": "2026-01-09 17:59",
+        "league": "Ligue 1",
+        "home": "PSG",
+        "away": "Man City",
+        "prediction": "HOME WIN",
+        "odds": 3.69,
+        "probability": 30.6,
+        "edge": 13.0,
+        "status": "PENDING",
+        "result": "LOST"
+    },
+    {
+        "id": 45,
+        "date": "2026-01-10 17:59",
+        "league": "Champions League",
+        "home": "Barcelona",
+        "away": "Real Madrid",
+        "prediction": "HOME WIN",
+        "odds": 3.03,
+        "probability": 36.1,
+        "edge": 9.4,
+        "status": "PENDING",
+        "result": "WON"
+    },
+    {
+        "id": 100,
+        "date": "2026-01-07 17:59",
+        "league": "Champions League",
+        "home": "Liverpool",
+        "away": "Barcelona",
+        "prediction": "HOME WIN",
+        "odds": 2.69,
+        "probability": 39.7,
+        "edge": 6.7,
+        "status": "PENDING",
+        "result": "LOST"
+    }
+]

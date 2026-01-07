@@ -1,0 +1,508 @@
+:root {
+    --bg-dark: #0f1014;
+    --bg-panel: #1a1c24;
+    --red-betclic: #d50032;
+    --text-white: #ffffff;
+    --text-gray: #8f94a6;
+    --font-std: 'Space Grotesk', sans-serif;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font-std);
+    background-color: var(--bg-dark);
+    color: var(--text-white);
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 5%;
+    align-items: center;
+    border-bottom: 1px solid #2a2c35;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    color: var(--red-betclic);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a:hover {
+    color: var(--red-betclic);
+}
+
+/* Hero */
+.hero {
+    text-align: center;
+    padding: 8rem 2rem;
+    background: radial-gradient(circle at center, rgba(213, 0, 50, 0.1) 0%, rgba(15, 16, 20, 0) 70%);
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+}
+
+.hero p {
+    color: var(--text-gray);
+    max-width: 600px;
+    margin: 0 auto 3rem auto;
+    font-size: 1.2rem;
+}
+
+.btn-primary {
+    background: var(--red-betclic);
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: 0.3s;
+}
+
+.btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(213, 0, 50, 0.4);
+}
+
+.stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 3rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat .val {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--red-betclic);
+}
+
+.stat .lbl {
+    font-size: 0.9rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Features */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 5rem 5%;
+    background: #14151a;
+}
+
+.feature-card {
+    background: var(--bg-panel);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 2px solid var(--red-betclic);
+}
+
+/* APP LAYOUT */
+.app-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background: var(--bg-panel);
+    padding: 2rem;
+    border-right: 1px solid #2a2c35;
+}
+
+.sidebar nav {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 3rem;
+}
+
+.sidebar a {
+    padding: 10px;
+    border-radius: 4px;
+    color: var(--text-gray);
+}
+
+.sidebar a.active {
+    background: rgba(213, 0, 50, 0.1);
+    color: var(--red-betclic);
+}
+
+.dashboard {
+    flex: 1;
+    padding: 3rem;
+}
+
+.dash-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.badge-free {
+    background: #333;
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+}
+
+/* Predictions Grid */
+.predictions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.pred-card {
+    background: var(--bg-panel);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid #2a2c35;
+    position: relative;
+    overflow: hidden;
+}
+
+.vip-locked {
+    filter: blur(0px);
+    /* We handle blur on content usually, but here we cover it */
+}
+
+.vip-locked::after {
+    content: "VIP ONLY";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(15, 16, 20, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: var(--text-gray);
+    backdrop-filter: blur(4px);
+    z-index: 10;
+}
+
+.league {
+    color: var(--text-gray);
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+}
+
+.teams {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.vs {
+    color: var(--red-betclic);
+    font-size: 0.9rem;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.stat-box {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.stat-box .label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-gray);
+}
+
+.stat-box .value {
+    font-weight: 700;
+    color: var(--text-white);
+}
+
+.stat-box .value.high {
+    color: #00ff9d;
+}
+
+.prediction-main {
+    text-align: center;
+    background: #252833;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--red-betclic);
+}
+
+.btn-bet {
+    width: 100%;
+    padding: 12px;
+    background: var(--text-white);
+    color: var(--bg-dark);
+    font-weight: 700;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.btn-bet:hover {
+    background: #ddd;
+}
+
+.btn-lock {
+    width: 100%;
+    padding: 12px;
+    background: #333;
+    color: #777;
+    border: 1px solid #444;
+    border-radius: 6px;
+    cursor: not-allowed;
+    position: relative;
+    z-index: 11;
+    /* Above mask */
+}
+
+/* Authentication Pages */
+.auth-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: radial-gradient(circle at top right, #1a0006 0%, #0f1014 40%);
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.auth-card {
+    background: var(--bg-panel);
+    padding: 2.5rem;
+    border-radius: 12px;
+    border: 1px solid #333;
+    text-align: center;
+}
+
+.logo-center {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    display: block;
+}
+
+.auth-subtitle {
+    color: var(--text-gray);
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    color: var(--text-gray);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    background: #111;
+    border: 1px solid #333;
+    padding: 12px;
+    border-radius: 6px;
+    color: white;
+    font-size: 1rem;
+}
+
+.form-group input:focus {
+    border-color: var(--red-betclic);
+    outline: none;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+    color: var(--text-gray);
+}
+
+.forgot-pass {
+    text-decoration: underline;
+}
+
+.btn-full {
+    width: 100%;
+    padding: 14px;
+    background: var(--red-betclic);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 700;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn-full:hover {
+    background: #b00029;
+}
+
+.auth-footer {
+    margin-top: 2rem;
+    font-size: 0.9rem;
+    color: var(--text-gray);
+}
+
+.auth-footer a {
+    color: var(--text-white);
+    font-weight: 700;
+}
+
+/* Pricing Page */
+.pricing-container {
+    padding: 4rem 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.pricing-header {
+    margin-bottom: 4rem;
+}
+
+.pricing-header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.pricing-grid {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 5rem;
+}
+
+.pricing-card {
+    background: var(--bg-panel);
+    border: 1px solid #333;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 350px;
+    text-align: left;
+    position: relative;
+}
+
+.pricing-card.featured {
+    border-color: var(--red-betclic);
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+}
+
+.badge-best {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--red-betclic);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.card-header-price h3 {
+    margin-bottom: 1rem;
+    color: var(--text-gray);
+}
+
+.price {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.price span {
+    font-size: 1rem;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+.features-list {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+}
+
+.features-list li {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #222;
+    padding-bottom: 10px;
+}
+
+.btn-block {
+    display: block;
+    text-align: center;
+    margin-top: auto;
+}
+
+.faq-section {
+    text-align: left;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    margin-bottom: 2rem;
+}
+
+.faq-item h4 {
+    margin-bottom: 0.5rem;
+    color: var(--text-white);
+}
+
+.faq-item p {
+    color: var(--text-gray);
+}
